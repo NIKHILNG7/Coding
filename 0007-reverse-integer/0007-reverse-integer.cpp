@@ -1,41 +1,17 @@
 class Solution {
 public:
-    int reverse(long long x) {
+    int reverse(int x) {
         
-    //if(x<=9 && x>=0)return x;
-        
-        //if(x>-10 && x<0) return x;
-        
-        //if(x<INT_MIN)return 0;
-        int value=0;
-       long long digit=0;
-        
-        
-        if(x<0){
+       int digit=0;
+    
+        while (x){
             
-            x=-x;
-            value=-1;
-            
-        }
-        else value=1;
-        
-        
-        while (x>=1){
-            
-            
-            digit=digit*10 + x%10;
+             if(digit<INT_MIN/10 || digit>INT_MAX/10)return 0;
+            else
+            { digit=digit*10 + x%10;
             x=x/10;
-            
-            
-        }
-        
-        long long k=value*digit;
-        
-        if(k<INT_MIN || k>INT_MAX)return 0;
-        
-        
-        return k;
-        
-        
+            }   
+        }   
+       return int(digit);    
     }
 };
