@@ -1,6 +1,6 @@
 class Solution {
 public:
-    int reverse(long x) {
+    int reverse(long long x) {
         
         if(x<=9 && x>=0)return x;
         
