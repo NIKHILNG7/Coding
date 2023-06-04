@@ -2,11 +2,11 @@ class Solution {
 public:
     int reverse(long long x) {
         
-        if(x<=9 && x>=0)return x;
+    //if(x<=9 && x>=0)return x;
         
-        if(x>-10 && x<0) return x;
+        //if(x>-10 && x<0) return x;
         
-        if(x<INT_MIN)return 0;
+        //if(x<INT_MIN)return 0;
         int value=0;
        long long digit=0;
         
