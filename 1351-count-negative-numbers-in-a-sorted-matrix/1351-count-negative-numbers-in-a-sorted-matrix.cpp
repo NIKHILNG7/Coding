@@ -7,17 +7,22 @@ public:
         int sum=0;
         
         for(int i=0;i<n;i++){
-            
-            for(int j=0;j<m;j++){
+             int start=0;
+                int last=m-1;
+               while(start<=last){
+                int mid=start+(last-start)/2;
+                if(grid[i][mid]<0) last=mid-1;
+                    
+                    else start=mid+1;
                 
-                if(grid[i][j]<0) {sum+=(m-j); break;}
+                }
                 
-                
+                sum+=m-start;
             }
             
             
             
-        }
+        
         
         return sum;
     }
