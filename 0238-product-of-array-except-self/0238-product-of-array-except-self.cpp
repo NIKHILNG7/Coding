@@ -1,26 +1,21 @@
 class Solution {
 public:
-
     vector<int> productExceptSelf(vector<int>& nums) {
-        std::vector<int> retVal(nums.size(), 1);
+        int n=nums.size();
+        vector<int>ans(n,1);
         
-        int curProduct = 1;
         
-        for (int i = 0; i < nums.size() - 1; ++i) {
-            curProduct *= nums[i];
-            retVal[i + 1]= curProduct;
+        for(int i=0,prefix=1,suffix=1;i<n;i++){
+            
+            ans[i]*=prefix;
+            prefix*=nums[i];
+            
+            ans[n-1-i]*=suffix;
+            suffix*=nums[n-1-i];
+            
+            
         }
+        return ans;
         
-        curProduct = 1;
-        
-        for (int i = nums.size() - 1; i >= 1; --i) {
-            curProduct *= nums[i];
-            retVal[i - 1]*= curProduct;
-        }
-        
-        return retVal;
     }
 };
-
-
-
