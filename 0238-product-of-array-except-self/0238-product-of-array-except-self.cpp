@@ -8,7 +8,7 @@ public:
         
         for (int i = 0; i < nums.size() - 1; ++i) {
             curProduct *= nums[i];
-            retVal[i + 1] = curProduct;
+            retVal[i + 1]*= curProduct;
         }
         
         curProduct = 1;
