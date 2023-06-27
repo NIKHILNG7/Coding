@@ -17,7 +17,7 @@ public:
             
             int j=i;
             
-           while((arr[s[j]])<1 && j<s.length()){
+           while((arr[s[j]])==0 && j<s.length()){
                sum++;
                arr[s[j]]++;
                j++;
