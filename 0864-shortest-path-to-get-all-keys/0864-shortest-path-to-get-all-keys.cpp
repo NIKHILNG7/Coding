@@ -1,29 +1,29 @@
 class Solution {
 public:
     int shortestPathAllKeys(vector<string>& grid) {
-        int rows = grid.size();
-        int cols = grid[0].size();
+        int numberOfRows = grid.size();
+        int numberOfColumns = grid[0].size();
 
         unordered_map<char, int> keyMap;
         int keyStart = 0;
-        for (int i = 0; i < rows; i++)
-            for (int j = 0; j < cols; j++)
+        for (int i = 0; i < numberOfRows; i++)
+            for (int j = 0; j < numberOfColumns; j++)
                 if (islower(grid[i][j]))
                     keyMap[grid[i][j]] = keyStart++;
         
         int endMask = (1 << keyStart) - 1;
         int maskSize = (1 << keyStart);
 
-        vector<vector<vector<bool>>> memo(rows, vector<vector<bool>>(cols, vector<bool>(maskSize, false)));
+        vector<vector<vector<bool>>> memo(numberOfRows, vector<vector<bool>>(numberOfColumns, vector<bool>(maskSize, false)));
 
-        vector<int> start;
-        for (int i = 0; i < rows; i++)
-            for (int j = 0; j < cols; j++)
+        vector<int> startPosition;
+        for (int i = 0; i < numberOfRows; i++)
+            for (int j = 0; j < numberOfColumns; j++)
                 if (grid[i][j] == '@')
-                    start = {i, j, 0}; // 0 denoting no key state
+                    startPosition = {i, j, 0}; // 0 denoting no key state
 
         queue<vector<int>> q;
-        q.push(start);
+        q.push(startPosition);
         int steps = 0;
         while (!q.empty())
         {
@@ -35,7 +35,7 @@ public:
                 int mask = q.front()[2];
                 q.pop();
 
-                if (row < 0 || row >= rows || col < 0 || col >= cols)
+                if (row < 0 || row >= numberOfRows || col < 0 || col >= numberOfColumns)
                     continue;
 
                 if (grid[row][col] == '#') continue;
