@@ -1,14 +1,22 @@
 class Solution {
 public:
-
-int sum=0;
     int fib(int n) {
         
-        if(n==0)return 0;
-        
-         if(n==1)return 1;
+if(n==0)return 0;
 
-        return (fib(n-1) + fib(n-2));
+if(n==1)return 1;
+
+    int prev=1;
+    int prev2=0;    
+    for(int i=2;i<=n;i++){
+   int fib_curr=prev+prev2;
+
+   prev2=prev;
+   prev=fib_curr;
+
+    }
+
+return prev;
 
     }
 };
